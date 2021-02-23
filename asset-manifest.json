@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ffmpeg-script-generator/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/ffmpeg-script-generator/static/js/main.8e137016.chunk.js",
+    "main.js.map": "/ffmpeg-script-generator/static/js/main.8e137016.chunk.js.map",
+    "runtime-main.js": "/ffmpeg-script-generator/static/js/runtime-main.64f505b8.js",
+    "runtime-main.js.map": "/ffmpeg-script-generator/static/js/runtime-main.64f505b8.js.map",
+    "static/js/2.9a79a24e.chunk.js": "/ffmpeg-script-generator/static/js/2.9a79a24e.chunk.js",
+    "static/js/2.9a79a24e.chunk.js.map": "/ffmpeg-script-generator/static/js/2.9a79a24e.chunk.js.map",
+    "static/js/3.bf8001f7.chunk.js": "/ffmpeg-script-generator/static/js/3.bf8001f7.chunk.js",
+    "static/js/3.bf8001f7.chunk.js.map": "/ffmpeg-script-generator/static/js/3.bf8001f7.chunk.js.map",
+    "index.html": "/ffmpeg-script-generator/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/ffmpeg-script-generator/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.9a79a24e.chunk.js.LICENSE.txt": "/ffmpeg-script-generator/static/js/2.9a79a24e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/ffmpeg-script-generator/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.64f505b8.js",
+    "static/js/2.9a79a24e.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.8e137016.chunk.js"
+  ]
+}
