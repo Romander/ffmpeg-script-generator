@@ -1,0 +1,8 @@
+.input {
+  display: flex;
+  flex-direction: row;
+}
+
+.input > div {
+  margin-left: 5px;
+}

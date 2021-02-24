@@ -1,0 +1,49 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.title-message {
+  font-size: 24px;
+  font-weight: 300;
+  color: #6d6d6d;
+  margin-bottom: 20px;
+}
+
+.group-title {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.inputs-container {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.params-container {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.checkboxes-container {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
