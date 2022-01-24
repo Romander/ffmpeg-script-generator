@@ -208,13 +208,17 @@ function App() {
                         Change duration and output filename.
                     </div>
                     <Input
+                        type="number"
+                        placeholder="Transition duration (seconds, float)"
                         value={transition.toString()}
-                        title={'Transition duration (seconds, float)'}
+                        title="Transition duration (seconds, float)"
                         onChange={handleChangeTransition}
                     />
                     <Input
+                        type="text"
+                        placeholder="Output filename"
                         value={outputFilename}
-                        title={'Output filename'}
+                        title="Output filename"
                         onChange={handleChangeOutputFilename}
                     />
                 </div>

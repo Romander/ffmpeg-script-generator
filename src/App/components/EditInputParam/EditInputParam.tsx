@@ -33,7 +33,10 @@ function EditInputParam(props: IEditnputParamProps) {
     )
 
     const handleDeleteInput = React.useCallback(() => {
-        onDeleteInput(props.inputParam?.id ?? null)
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm('Are you sure?')) {
+            onDeleteInput(props.inputParam?.id ?? null)
+        }
     }, [props.inputParam, onDeleteInput])
 
     return (
@@ -41,14 +44,17 @@ function EditInputParam(props: IEditnputParamProps) {
             <div>
                 name:
                 <input
-                    defaultValue={props.inputParam?.name}
+                    placeholder="name"
+                    value={props.inputParam?.name}
                     onChange={handleChangeNameInput}
                 />
             </div>
             <div>
                 duration:
                 <input
-                    defaultValue={props.inputParam?.duration}
+                    type="number"
+                    placeholder="duration"
+                    value={props.inputParam?.duration}
                     onChange={handleChangeDurationInput}
                 />
                 (seconds, float)
