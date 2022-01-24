@@ -14,8 +14,6 @@ interface IScriptVisualizerProps {
 }
 
 function ScriptVisualizer(props: IScriptVisualizerProps) {
-    console.log(props);
-
     return (
         <ScriptVisualizerView>
             <div>ffmpeg \</div>

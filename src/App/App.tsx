@@ -42,15 +42,7 @@ function App() {
     const handleChangeInput = React.useCallback(
         (newInput: IFFmpegInputParam | null) => {
             if (newInput) {
-                console.log(newInput);
-
                 setInputs((oldInputs) => {
-                    console.log(oldInputs);
-                    console.log(
-                        oldInputs.map((input) =>
-                            input.id === newInput.id ? newInput : input
-                        )
-                    );
                     return oldInputs.map((input) =>
                         input.id === newInput.id ? newInput : input
                     );
