@@ -1,4 +1,3 @@
-import React from "react";
 import { IFFmpegInputParam } from "../../types";
 import { ScriptVisualizerView } from "./components/ScriptVisualizerView/ScriptVisualizerView";
 
@@ -15,6 +14,8 @@ interface IScriptVisualizerProps {
 }
 
 function ScriptVisualizer(props: IScriptVisualizerProps) {
+  console.log(props);
+
   return (
     <ScriptVisualizerView>
       <div>ffmpeg \</div>
@@ -40,8 +41,8 @@ function ScriptVisualizer(props: IScriptVisualizerProps) {
           <div>
             {xfade}
             {props.xfades?.length && index === props.xfades?.length - 1
-              ? ";"
-              : null}
+              ? props.acrossfades ? ";" : '"'
+              : null }
             \
           </div>
         ))}

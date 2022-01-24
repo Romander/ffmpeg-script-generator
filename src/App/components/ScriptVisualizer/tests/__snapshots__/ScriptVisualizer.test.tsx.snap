@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScriptVisualizer should render correctly 1`] = `
+<div
+  className="script-visualizer-view"
+>
+  <div>
+    ffmpeg \\
+  </div>
+  <div>
+    -vsync 0 \\
+  </div>
+  <div>
+    -i "
+    F1.AVI
+    " \\
+  </div>
+  <div>
+    -i "
+    F2.AVI
+    " \\
+  </div>
+  <div>
+    -filter_complex \\
+    <div>
+      "
+      [0]settb=AVTB[0:v];
+       \\
+    </div>
+    <div>
+      [1]settb=AVTB[1:v];
+       \\
+    </div>
+    <div>
+      [0]atrim=0:10[0:a];
+       \\
+    </div>
+    <div>
+      [1]atrim=0:10[1:a];
+       \\
+    </div>
+  </div>
+  <div>
+    <div>
+      [0:v][1:v]xfade=transition=fade:duration=1:offset=9,format=yuv420p[video]
+      ;
+      \\
+    </div>
+    <div>
+      [0:a][1:a]acrossfade=d=1:c1=tri:c2=tri[audio]
+      "
+      \\
+    </div>
+  </div>
+  <div>
+    -b:v 10M \\
+  </div>
+  <div>
+    -map "[audio]" -map "[video]"
+     "
+    out.mp4
+    " \\
+  </div>
+</div>
+`;
+
+exports[`ScriptVisualizer should render with enableNvideaDecode and enableNvideaEncode setting 1`] = `
+<div
+  className="script-visualizer-view"
+>
+  <div>
+    ffmpeg \\
+  </div>
+  <div>
+    -vsync 0 \\
+  </div>
+  <div>
+    -c:v h264_cuvid \\
+  </div>
+  <div>
+    -i "
+    F1.AVI
+    " \\
+  </div>
+  <div>
+    -i "
+    F2.AVI
+    " \\
+  </div>
+  <div>
+    -filter_complex \\
+    <div>
+      "
+      [0]settb=AVTB[0:v];
+       \\
+    </div>
+    <div>
+      [1]settb=AVTB[1:v];
+       \\
+    </div>
+    <div>
+      [0]atrim=0:10[0:a];
+       \\
+    </div>
+    <div>
+      [1]atrim=0:10[1:a];
+       \\
+    </div>
+  </div>
+  <div>
+    <div>
+      [0:v][1:v]xfade=transition=fade:duration=1:offset=9,format=yuv420p[video]
+      ;
+      \\
+    </div>
+    <div>
+      [0:a][1:a]acrossfade=d=1:c1=tri:c2=tri[audio]
+      "
+      \\
+    </div>
+  </div>
+  <div>
+    -c:v h264_nvenc \\
+  </div>
+  <div>
+    -b:v 10M \\
+  </div>
+  <div>
+    -map "[audio]" -map "[video]"
+     "
+    out.mp4
+    " \\
+  </div>
+</div>
+`;
+
+exports[`ScriptVisualizer should render with enableNvideaDecode setting 1`] = `
+<div
+  className="script-visualizer-view"
+>
+  <div>
+    ffmpeg \\
+  </div>
+  <div>
+    -vsync 0 \\
+  </div>
+  <div>
+    -c:v h264_cuvid \\
+  </div>
+  <div>
+    -i "
+    F1.AVI
+    " \\
+  </div>
+  <div>
+    -i "
+    F2.AVI
+    " \\
+  </div>
+  <div>
+    -filter_complex \\
+    <div>
+      "
+      [0]settb=AVTB[0:v];
+       \\
+    </div>
+    <div>
+      [1]settb=AVTB[1:v];
+       \\
+    </div>
+    <div>
+      [0]atrim=0:10[0:a];
+       \\
+    </div>
+    <div>
+      [1]atrim=0:10[1:a];
+       \\
+    </div>
+  </div>
+  <div>
+    <div>
+      [0:v][1:v]xfade=transition=fade:duration=1:offset=9,format=yuv420p[video]
+      ;
+      \\
+    </div>
+    <div>
+      [0:a][1:a]acrossfade=d=1:c1=tri:c2=tri[audio]
+      "
+      \\
+    </div>
+  </div>
+  <div>
+    -b:v 10M \\
+  </div>
+  <div>
+    -map "[audio]" -map "[video]"
+     "
+    out.mp4
+    " \\
+  </div>
+</div>
+`;
+
+exports[`ScriptVisualizer should render with enableNvideaEncode setting 1`] = `
+<div
+  className="script-visualizer-view"
+>
+  <div>
+    ffmpeg \\
+  </div>
+  <div>
+    -vsync 0 \\
+  </div>
+  <div>
+    -i "
+    F1.AVI
+    " \\
+  </div>
+  <div>
+    -i "
+    F2.AVI
+    " \\
+  </div>
+  <div>
+    -filter_complex \\
+    <div>
+      "
+      [0]settb=AVTB[0:v];
+       \\
+    </div>
+    <div>
+      [1]settb=AVTB[1:v];
+       \\
+    </div>
+    <div>
+      [0]atrim=0:10[0:a];
+       \\
+    </div>
+    <div>
+      [1]atrim=0:10[1:a];
+       \\
+    </div>
+  </div>
+  <div>
+    <div>
+      [0:v][1:v]xfade=transition=fade:duration=1:offset=9,format=yuv420p[video]
+      ;
+      \\
+    </div>
+    <div>
+      [0:a][1:a]acrossfade=d=1:c1=tri:c2=tri[audio]
+      "
+      \\
+    </div>
+  </div>
+  <div>
+    -c:v h264_nvenc \\
+  </div>
+  <div>
+    -b:v 10M \\
+  </div>
+  <div>
+    -map "[audio]" -map "[video]"
+     "
+    out.mp4
+    " \\
+  </div>
+</div>
+`;
+
+exports[`ScriptVisualizer should render without acrossfades 1`] = `
+<div
+  className="script-visualizer-view"
+>
+  <div>
+    ffmpeg \\
+  </div>
+  <div>
+    -vsync 0 \\
+  </div>
+  <div>
+    -i "
+    F1.AVI
+    " \\
+  </div>
+  <div>
+    -i "
+    F2.AVI
+    " \\
+  </div>
+  <div>
+    -filter_complex \\
+    <div>
+      "
+      [0]settb=AVTB[0:v];
+       \\
+    </div>
+    <div>
+      [1]settb=AVTB[1:v];
+       \\
+    </div>
+    <div>
+      [0]atrim=0:10[0:a];
+       \\
+    </div>
+    <div>
+      [1]atrim=0:10[1:a];
+       \\
+    </div>
+  </div>
+  <div>
+    <div>
+      [0:v][1:v]xfade=transition=fade:duration=1:offset=9,format=yuv420p[video]
+      "
+      \\
+    </div>
+  </div>
+  <div>
+    -b:v 10M \\
+  </div>
+  <div>
+    -map "[audio]" -map "[video]"
+     "
+    out.mp4
+    " \\
+  </div>
+</div>
+`;
