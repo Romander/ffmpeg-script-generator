@@ -1,3 +1,7 @@
+.script-visualizer-view-container {
+    position: relative;
+}
+
 .script-visualizer-view {
     color: #61dafb;
     background-color: #282c34;
@@ -8,4 +12,34 @@
     margin: 20px;
     overflow: auto;
     white-space: nowrap;
+    transition: all 0.5s ease-out;
+}
+
+.script-visualizer-view:hover {
+    filter: blur(4px);
+    cursor: pointer;
+}
+
+.script-visualizer-view:active {
+    filter: blur(4px);
+    cursor: pointer;
+}
+
+.script-visualizer-view-container:hover
+    > .script-visualizer-view-hover-message {
+    opacity: 100%;
+}
+
+.script-visualizer-view-hover-message {
+    opacity: 0%;
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    font-size: 50px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transition: all 0.5s ease-out;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }

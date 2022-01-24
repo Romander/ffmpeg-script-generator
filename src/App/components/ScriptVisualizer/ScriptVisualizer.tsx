@@ -19,24 +19,24 @@ function ScriptVisualizer(props: IScriptVisualizerProps) {
             <div>ffmpeg \</div>
             <div>-vsync 0 \</div>
             {props.enableNvideaDecode && <div>-c:v h264_cuvid \</div>}
-            {props.inputs.map((input) => (
-                <div>-i "{input.name}" \</div>
+            {props.inputs.map((input, index) => (
+                <div key={index}>-i "{input.name}" \</div>
             ))}
             <div>
                 -filter_complex \
                 {props.filterComplexVideosSettings?.map((setting, index) => (
-                    <div>
+                    <div key={index}>
                         {index === 0 ? '"' : null}
                         {setting} \
                     </div>
                 ))}
-                {props.filterComplexAudiosSettings?.map((setting) => (
-                    <div>{setting} \</div>
+                {props.filterComplexAudiosSettings?.map((setting, index) => (
+                    <div key={index}>{setting} \</div>
                 ))}
             </div>
             <div>
                 {props.xfades?.map((xfade, index) => (
-                    <div>
+                    <div key={index}>
                         {xfade}
                         {props.xfades?.length &&
                         index === props.xfades?.length - 1
@@ -48,7 +48,7 @@ function ScriptVisualizer(props: IScriptVisualizerProps) {
                     </div>
                 ))}
                 {props.acrossfades?.map((acrossfade, index) => (
-                    <div>
+                    <div key={index}>
                         {acrossfade}
                         {props.acrossfades?.length &&
                         index === props.acrossfades?.length - 1
