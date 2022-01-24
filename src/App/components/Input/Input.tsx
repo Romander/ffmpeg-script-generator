@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import './Input.css'
+import './Input.css';
 
 interface IInputProps {
-    type: 'text' | 'number'
-    title?: string
-    value?: string
-    placeholder?: string
-    onChange: (newInput: string | null) => void
+    type: 'text' | 'number';
+    title?: string;
+    value?: string;
+    placeholder?: string;
+    onChange: (newInput: string | null) => void;
 }
 
 function Input(props: IInputProps) {
@@ -23,7 +23,7 @@ function Input(props: IInputProps) {
             />
             {props.title && <div>{props.title}</div>}
         </div>
-    )
+    );
 }
 
-export { Input }
+export { Input };

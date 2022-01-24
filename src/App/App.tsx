@@ -1,137 +1,137 @@
-import React from 'react'
-import { AddInputParam } from './components/AddInputParam/AddInputParam'
-import { Checkbox } from './components/Checkbox/Checkbox'
-import { EditInputParam } from './components/EditInputParam/EditInputParam'
-import { Input } from './components/Input/Input'
-import { ScriptVisualizerView } from './components/ScriptVisualizer/components/ScriptVisualizerView/ScriptVisualizerView'
-import { ScriptVisualizer } from './components/ScriptVisualizer/ScriptVisualizer'
-import { IFFmpegInputParam } from './types'
+import React from 'react';
+import { AddInputParam } from './components/AddInputParam/AddInputParam';
+import { Checkbox } from './components/Checkbox/Checkbox';
+import { EditInputParam } from './components/EditInputParam/EditInputParam';
+import { Input } from './components/Input/Input';
+import { ScriptVisualizerView } from './components/ScriptVisualizer/components/ScriptVisualizerView/ScriptVisualizerView';
+import { ScriptVisualizer } from './components/ScriptVisualizer/ScriptVisualizer';
+import { IFFmpegInputParam } from './types';
 
-import './App.css'
+import './App.css';
 
 function App() {
     const [enableNvideaDecode, setEnableNvideaDecode] =
-        React.useState<boolean>(false)
+        React.useState<boolean>(false);
     const [enableNvideaEncode, setEnableNvideaEncode] =
-        React.useState<boolean>(false)
+        React.useState<boolean>(false);
     const [isScriptGeneratingSeparately, setIsScriptGeneratingSeparately] =
-        React.useState<boolean>(false)
+        React.useState<boolean>(false);
 
-    const [transition, setTransition] = React.useState<number>(1)
-    const [inputs, setInputs] = React.useState<Array<IFFmpegInputParam>>([])
+    const [transition, setTransition] = React.useState<number>(1);
+    const [inputs, setInputs] = React.useState<Array<IFFmpegInputParam>>([]);
     const [outputFilename, setOutputFilename] =
-        React.useState<string>('out.mp4')
+        React.useState<string>('out.mp4');
 
     const handleAddInput = React.useCallback(
         (newInput: IFFmpegInputParam | null) => {
             if (newInput) {
-                setInputs((oldInputs) => [...oldInputs, newInput])
+                setInputs((oldInputs) => [...oldInputs, newInput]);
             }
         },
         []
-    )
+    );
 
     const handleDeleteInput = React.useCallback((id: string | null) => {
         if (id) {
             setInputs((oldInputs) =>
                 oldInputs.filter((input) => input.id !== id)
-            )
+            );
         }
-    }, [])
+    }, []);
 
     const handleChangeInput = React.useCallback(
         (newInput: IFFmpegInputParam | null) => {
             if (newInput) {
-                console.log(newInput)
+                console.log(newInput);
 
                 setInputs((oldInputs) => {
-                    console.log(oldInputs)
+                    console.log(oldInputs);
                     console.log(
                         oldInputs.map((input) =>
                             input.id === newInput.id ? newInput : input
                         )
-                    )
+                    );
                     return oldInputs.map((input) =>
                         input.id === newInput.id ? newInput : input
-                    )
-                })
+                    );
+                });
             }
         },
         []
-    )
+    );
 
     const handleChangeTransition = React.useCallback(
         (newTransition: string | null) => {
             if (newTransition && Number.parseFloat(newTransition)) {
-                setTransition(Number.parseFloat(newTransition))
+                setTransition(Number.parseFloat(newTransition));
             }
         },
         []
-    )
+    );
 
     const handleChangeOutputFilename = React.useCallback(
         (newFilename: string | null) => {
             if (newFilename) {
-                setOutputFilename(newFilename)
+                setOutputFilename(newFilename);
             }
         },
         []
-    )
+    );
 
     const handleChangeNvideaDecodeCheckbox = React.useCallback(() => {
-        setEnableNvideaDecode((value) => !value)
-    }, [])
+        setEnableNvideaDecode((value) => !value);
+    }, []);
 
     const handleChangeNvideaEncodeCheckbox = React.useCallback(() => {
-        setEnableNvideaEncode((value) => !value)
-    }, [])
+        setEnableNvideaEncode((value) => !value);
+    }, []);
 
     const handleChangeIsScriptGeneratingSeparately = React.useCallback(() => {
-        setIsScriptGeneratingSeparately((value) => !value)
-    }, [])
+        setIsScriptGeneratingSeparately((value) => !value);
+    }, []);
 
     const getScript = (
         transitionDurationSec: number
     ): {
-        filterComplexVideosSettings: Array<string>
-        filterComplexAudiosSettings: Array<string>
-        xfades: Array<string>
-        acrossfades: Array<string>
+        filterComplexVideosSettings: Array<string>;
+        filterComplexAudiosSettings: Array<string>;
+        xfades: Array<string>;
+        acrossfades: Array<string>;
     } => {
-        var priveousOffset = 0
-        var filterComplexVideosSettings: Array<string> = []
-        var filterComplexAudiosSettings: Array<string> = []
-        var xfades: Array<string> = []
-        var acrossfades: Array<string> = []
+        var priveousOffset = 0;
+        var filterComplexVideosSettings: Array<string> = [];
+        var filterComplexAudiosSettings: Array<string> = [];
+        var xfades: Array<string> = [];
+        var acrossfades: Array<string> = [];
         for (var i = 0; i < inputs.length; i++) {
             filterComplexAudiosSettings = [
                 ...filterComplexAudiosSettings,
                 getFilterComplexAudioSetting(i, inputs[i].duration ?? 0),
-            ]
+            ];
 
             filterComplexVideosSettings = [
                 ...filterComplexVideosSettings,
                 getFilterComplexVideoSetting(i),
-            ]
+            ];
 
             if (i < inputs.length - 1) {
                 acrossfades = [
                     ...acrossfades,
                     getAcrossfade(i, inputs.length, transitionDurationSec),
-                ]
+                ];
 
                 const offset = +(
                     (inputs[i].duration ?? 0) +
                     priveousOffset -
                     transitionDurationSec
-                ).toFixed(3)
+                ).toFixed(3);
 
-                priveousOffset = offset
+                priveousOffset = offset;
 
                 xfades = [
                     ...xfades,
                     getXfade(i, inputs.length, offset, transitionDurationSec),
-                ]
+                ];
             }
         }
 
@@ -140,8 +140,8 @@ function App() {
             filterComplexAudiosSettings,
             xfades,
             acrossfades,
-        }
-    }
+        };
+    };
 
     const getXfade = (
         i: number,
@@ -153,10 +153,10 @@ function App() {
             i + 1
         }:v]xfade=transition=fade:duration=${transitionDurationSec}:offset=${offset}${
             i + 1 === lastIndex - 1 ? ',format=yuv420p[video]' : `[v${i + 1}];`
-        }`
+        }`;
 
     const getFilterComplexVideoSetting = (i: number) =>
-        `[${i}]settb=AVTB[${i}:v];`
+        `[${i}]settb=AVTB[${i}:v];`;
 
     const getAcrossfade = (
         i: number,
@@ -167,12 +167,12 @@ function App() {
             i + 1
         }:a]acrossfade=d=${transitionDurationSec}:c1=tri:c2=tri${
             i + 1 === lastIndex - 1 ? '[audio]' : `[a${i + 1}];`
-        }`
+        }`;
 
     const getFilterComplexAudioSetting = (i: number, durationSec: number) =>
-        `[${i}]atrim=0:${durationSec}[${i}:a];`
+        `[${i}]atrim=0:${durationSec}[${i}:a];`;
 
-    const script = getScript(transition)
+    const script = getScript(transition);
 
     return (
         <div className="app">
@@ -299,7 +299,7 @@ function App() {
                 )}
             </div>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

@@ -1,20 +1,20 @@
-import { IFFmpegInputParam } from '../../types'
-import { ScriptVisualizerView } from './components/ScriptVisualizerView/ScriptVisualizerView'
+import { IFFmpegInputParam } from '../../types';
+import { ScriptVisualizerView } from './components/ScriptVisualizerView/ScriptVisualizerView';
 
 interface IScriptVisualizerProps {
-    enableNvideaDecode: boolean
-    enableNvideaEncode: boolean
-    inputs: Array<IFFmpegInputParam>
-    filterComplexVideosSettings?: Array<string>
-    filterComplexAudiosSettings?: Array<string>
-    xfades?: Array<string>
-    acrossfades?: Array<string>
-    mapping: string
-    outputFilename: string
+    enableNvideaDecode: boolean;
+    enableNvideaEncode: boolean;
+    inputs: Array<IFFmpegInputParam>;
+    filterComplexVideosSettings?: Array<string>;
+    filterComplexAudiosSettings?: Array<string>;
+    xfades?: Array<string>;
+    acrossfades?: Array<string>;
+    mapping: string;
+    outputFilename: string;
 }
 
 function ScriptVisualizer(props: IScriptVisualizerProps) {
-    console.log(props)
+    console.log(props);
 
     return (
         <ScriptVisualizerView>
@@ -66,7 +66,7 @@ function ScriptVisualizer(props: IScriptVisualizerProps) {
                 {props.mapping} "{props.outputFilename}" \
             </div>
         </ScriptVisualizerView>
-    )
+    );
 }
 
-export { ScriptVisualizer }
+export { ScriptVisualizer };

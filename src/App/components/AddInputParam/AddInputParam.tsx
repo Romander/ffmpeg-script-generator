@@ -1,16 +1,16 @@
-import React from 'react'
-import * as uuid from 'uuid'
-import { IFFmpegInputParam } from '../../types'
+import React from 'react';
+import * as uuid from 'uuid';
+import { IFFmpegInputParam } from '../../types';
 
-import './AddInputParam.css'
+import './AddInputParam.css';
 
 interface IAddInputParamProps {
-    onAddInput: (newInput: IFFmpegInputParam | null) => void
+    onAddInput: (newInput: IFFmpegInputParam | null) => void;
 }
 
 function AddInputParam(props: IAddInputParamProps) {
-    const [name, setName] = React.useState<string | null>(null)
-    const [duration, setDuration] = React.useState<number | null>(null)
+    const [name, setName] = React.useState<string | null>(null);
+    const [duration, setDuration] = React.useState<number | null>(null);
 
     const handleAdd = React.useCallback(() => {
         if (name && duration) {
@@ -18,13 +18,13 @@ function AddInputParam(props: IAddInputParamProps) {
                 id: uuid.v4(),
                 name,
                 duration,
-            })
-            setName(null)
-            setDuration(null)
+            });
+            setName(null);
+            setDuration(null);
         } else {
-            alert('name and duration are required')
+            alert('name and duration are required');
         }
-    }, [name, duration, props])
+    }, [name, duration, props]);
 
     return (
         <div className="add-input-param">
@@ -52,7 +52,7 @@ function AddInputParam(props: IAddInputParamProps) {
                 <button onClick={handleAdd}>+</button>
             </div>
         </div>
-    )
+    );
 }
 
-export { AddInputParam }
+export { AddInputParam };

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import './Checkbox.css'
+import './Checkbox.css';
 
 interface ICheckboxProps {
-    title: string
-    onChange: (changed: boolean) => void
+    title: string;
+    onChange: (changed: boolean) => void;
 }
 
 function Checkbox(props: ICheckboxProps) {
-    const inputRef = React.useRef<HTMLInputElement>(null)
+    const inputRef = React.useRef<HTMLInputElement>(null);
 
     return (
         <div className={'checkbox'}>
@@ -19,7 +19,7 @@ function Checkbox(props: ICheckboxProps) {
             />
             <div>{props.title}</div>
         </div>
-    )
+    );
 }
 
-export { Checkbox }
+export { Checkbox };

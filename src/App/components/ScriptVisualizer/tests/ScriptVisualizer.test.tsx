@@ -1,6 +1,6 @@
-import * as uuid from 'uuid'
-import renderer from 'react-test-renderer'
-import { ScriptVisualizer } from '../ScriptVisualizer'
+import * as uuid from 'uuid';
+import renderer from 'react-test-renderer';
+import { ScriptVisualizer } from '../ScriptVisualizer';
 
 const getProps = (newProps?: any) => ({
     enableNvideaDecode: false,
@@ -18,29 +18,29 @@ const getProps = (newProps?: any) => ({
     mapping: '-map "[audio]" -map "[video]"',
     outputFilename: 'out.mp4',
     ...newProps,
-})
+});
 
 test('ScriptVisualizer should render correctly', () => {
-    const component = renderer.create(<ScriptVisualizer {...getProps()} />)
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-})
+    const component = renderer.create(<ScriptVisualizer {...getProps()} />);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 test('ScriptVisualizer should render with enableNvideaDecode setting', () => {
     const component = renderer.create(
         <ScriptVisualizer {...getProps({ enableNvideaDecode: true })} />
-    )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-})
+    );
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 test('ScriptVisualizer should render with enableNvideaEncode setting', () => {
     const component = renderer.create(
         <ScriptVisualizer {...getProps({ enableNvideaEncode: true })} />
-    )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-})
+    );
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 test('ScriptVisualizer should render with enableNvideaDecode and enableNvideaEncode setting', () => {
     const component = renderer.create(
@@ -50,15 +50,15 @@ test('ScriptVisualizer should render with enableNvideaDecode and enableNvideaEnc
                 enableNvideaEncode: true,
             })}
         />
-    )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-})
+    );
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 test('ScriptVisualizer should render without acrossfades', () => {
     const component = renderer.create(
         <ScriptVisualizer {...getProps({ acrossfades: null })} />
-    )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
-})
+    );
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
