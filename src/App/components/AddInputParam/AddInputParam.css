@@ -1,9 +1,9 @@
 .add-input-param {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .add-input-param > div {
-  margin-right: 5px;
+    margin-right: 5px;
 }

@@ -1,10 +1,11 @@
 .script-visualizer-view {
-  color: #61dafb;
-  background-color: #282c34;
-  border-radius: 20px;
-  padding: 20px;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
-  margin: 20px;
-  overflow: auto;
-  white-space: nowrap;
+    color: #61dafb;
+    background-color: #282c34;
+    border-radius: 20px;
+    padding: 20px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New,
+        monospace;
+    margin: 20px;
+    overflow: auto;
+    white-space: nowrap;
 }

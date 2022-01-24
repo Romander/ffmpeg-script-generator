@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
-import "./ScriptVisualizerView.css";
+import './ScriptVisualizerView.css'
 
 interface IScriptVisualizerViewProps {
-  children: React.ReactNode;
+    children: React.ReactNode
 }
 
 function ScriptVisualizerView(props: IScriptVisualizerViewProps) {
-  return <div className={"script-visualizer-view"}>{props.children}</div>;
+    return <div className={'script-visualizer-view'}>{props.children}</div>
 }
 
-export { ScriptVisualizerView };
+export { ScriptVisualizerView }
