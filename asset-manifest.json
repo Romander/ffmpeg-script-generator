@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ffmpeg-script-generator/static/css/main.2f0c78af.css",
-    "main.js": "/ffmpeg-script-generator/static/js/main.5e222e1f.js",
+    "main.css": "/ffmpeg-script-generator/static/css/main.07abdf72.css",
+    "main.js": "/ffmpeg-script-generator/static/js/main.c5fae8e5.js",
     "static/js/787.57b285ba.chunk.js": "/ffmpeg-script-generator/static/js/787.57b285ba.chunk.js",
     "index.html": "/ffmpeg-script-generator/index.html",
-    "main.2f0c78af.css.map": "/ffmpeg-script-generator/static/css/main.2f0c78af.css.map",
-    "main.5e222e1f.js.map": "/ffmpeg-script-generator/static/js/main.5e222e1f.js.map",
+    "main.07abdf72.css.map": "/ffmpeg-script-generator/static/css/main.07abdf72.css.map",
+    "main.c5fae8e5.js.map": "/ffmpeg-script-generator/static/js/main.c5fae8e5.js.map",
     "787.57b285ba.chunk.js.map": "/ffmpeg-script-generator/static/js/787.57b285ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f0c78af.css",
-    "static/js/main.5e222e1f.js"
+    "static/css/main.07abdf72.css",
+    "static/js/main.c5fae8e5.js"
   ]
 }
