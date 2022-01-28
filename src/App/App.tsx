@@ -16,6 +16,7 @@ function App() {
         React.useState<boolean>(false);
     const [isScriptGeneratingSeparately, setIsScriptGeneratingSeparately] =
         React.useState<boolean>(false);
+    const [useBackSlash, setUseBackSlash] = React.useState<boolean>(true);
 
     const [transition, setTransition] = React.useState<number>(1);
     const [inputs, setInputs] = React.useState<Array<IFFmpegInputParam>>([]);
@@ -80,6 +81,10 @@ function App() {
 
     const handleChangeIsScriptGeneratingSeparately = React.useCallback(() => {
         setIsScriptGeneratingSeparately((value) => !value);
+    }, []);
+
+    const handleUseBackSlash = React.useCallback(() => {
+        setUseBackSlash((value) => !value);
     }, []);
 
     const getScript = (
@@ -239,6 +244,11 @@ function App() {
                         }
                         onChange={handleChangeIsScriptGeneratingSeparately}
                     />
+                    <Checkbox
+                        value={useBackSlash}
+                        title={'Use back slash (\\)'}
+                        onChange={handleUseBackSlash}
+                    />
                 </div>
 
                 {isScriptGeneratingSeparately ? (
@@ -251,8 +261,9 @@ function App() {
                                 script.filterComplexVideosSettings
                             }
                             xfades={script.xfades}
-                            mapping={'-map "[video]"'}
-                            outputFilename={'out.mp4'}
+                            mapping={[{ '-map': '"[video]"' }]}
+                            outputFilename={'temp.mp4'}
+                            useBackSlash={useBackSlash}
                         />
 
                         <ScriptVisualizer
@@ -263,13 +274,14 @@ function App() {
                                 script.filterComplexAudiosSettings
                             }
                             acrossfades={script.acrossfades}
-                            mapping={'-map "[audio]"'}
-                            outputFilename={'out.wav'}
+                            mapping={[{ '-map': '"[audio]"' }]}
+                            outputFilename={'temp.wav'}
+                            useBackSlash={useBackSlash}
                         />
 
                         <ScriptVisualizerView>
-                            ffmpeg -i "out.mp4" -i "out.wav"-c:v copy -c:a aac{' '}
-                            {outputFilename}
+                            ffmpeg -i "temp.mp4" -i "temp.wav" -c:v copy -c:a
+                            aac {outputFilename}
                         </ScriptVisualizerView>
                     </>
                 ) : (
@@ -285,8 +297,12 @@ function App() {
                         }
                         xfades={script.xfades}
                         acrossfades={script.acrossfades}
-                        mapping={'-map "[audio]" -map "[video]"'}
+                        mapping={[
+                            { '-map': '"[audio]"' },
+                            { '-map': '"[video]"' },
+                        ]}
                         outputFilename={outputFilename}
+                        useBackSlash={useBackSlash}
                     />
                 )}
             </div>

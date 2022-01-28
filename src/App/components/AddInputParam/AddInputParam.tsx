@@ -29,7 +29,6 @@ function AddInputParam(props: IAddInputParamProps) {
     return (
         <div className="add-input-param">
             <div>
-                name:
                 <input
                     value={name || ''}
                     placeholder="name"
@@ -37,7 +36,6 @@ function AddInputParam(props: IAddInputParamProps) {
                 />
             </div>
             <div>
-                duration:
                 <input
                     type="number"
                     value={duration || ''}

@@ -3,6 +3,7 @@ import React from 'react';
 import './Checkbox.css';
 
 interface ICheckboxProps {
+    value?: boolean;
     title: string;
     onChange: (changed: boolean) => void;
 }
@@ -15,7 +16,8 @@ function Checkbox(props: ICheckboxProps) {
             <input
                 type="checkbox"
                 ref={inputRef}
-                onChange={() => props.onChange(true)}
+                checked={props.value}
+                onChange={(e) => props.onChange(e.target.checked)}
             />
             <div>{props.title}</div>
         </div>
