@@ -121,7 +121,7 @@ function App() {
                     (inputs[i].duration ?? 0) +
                     priveousOffset -
                     transitionDurationSec
-                ).toFixed(3);
+                );
 
                 priveousOffset = offset;
 
@@ -167,7 +167,7 @@ function App() {
         }`;
 
     const getFilterComplexAudioSetting = (i: number, durationSec: number) =>
-        `[${i}]atrim=0:${durationSec}[${i}:a];`;
+        `[${i}]aresample=async=1:first_pts=0,apad,atrim=0:${durationSec}[${i}:a];`;
 
     const script = getScript(transition);
 
@@ -261,7 +261,7 @@ function App() {
                                 script.filterComplexVideosSettings
                             }
                             xfades={script.xfades}
-                            mapping={[{ '-map': '"[video]"' }]}
+                            mapping={[{ '-map': '"[video]"', '-rc': 'vbr', '-cq': '30', '-qmin': '30', '-qmax': '30' }]}
                             outputFilename={'temp.mp4'}
                             useBackSlash={useBackSlash}
                         />
@@ -274,7 +274,7 @@ function App() {
                                 script.filterComplexAudiosSettings
                             }
                             acrossfades={script.acrossfades}
-                            mapping={[{ '-map': '"[audio]"' }]}
+                            mapping={[{ '-map': '"[audio]"', '-ar': '48000', '-b:a': '96k' }]}
                             outputFilename={'temp.wav'}
                             useBackSlash={useBackSlash}
                         />
@@ -298,8 +298,8 @@ function App() {
                         xfades={script.xfades}
                         acrossfades={script.acrossfades}
                         mapping={[
-                            { '-map': '"[audio]"' },
-                            { '-map': '"[video]"' },
+                            { '-map': '"[audio]"' , '-ar': '48000', '-b:a': '96k' },
+                            { '-map': '"[video]"', '-rc': 'vbr', '-cq': '30', '-qmin': '30', '-qmax': '30' },
                         ]}
                         outputFilename={outputFilename}
                         useBackSlash={useBackSlash}

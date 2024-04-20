@@ -70,7 +70,6 @@ function ScriptVisualizer(props: IScriptVisualizerProps) {
             ),
         },
         ...(props.enableNvideaEncode ? [{ '-c:v': 'h264_nvenc' }] : []),
-        { '-b:v': '10M' },
         ...props.mapping,
         { [props.outputFilename]: undefined },
     ];
